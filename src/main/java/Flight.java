@@ -75,6 +75,7 @@ public class Flight {
         }
     }
 
+
     public static void runMenu(){
         int option;
         boolean decision = true;
