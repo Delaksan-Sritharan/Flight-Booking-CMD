@@ -5,7 +5,9 @@ public class Flight {
     private static int[] pricePerRow = null;
 
     public static void main(String[] args) {
-        System.out.println("Welcome to Dela Flight Booking!");
+        System.out.println("*".repeat(37));
+        System.out.println("|  Welcome to Dela Flight Booking!  |");
+        System.out.println("*".repeat(37));
         initialiseRows();
         runMenu();
 
@@ -28,10 +30,10 @@ public class Flight {
     public static int getMenu(){
         Scanner input = new Scanner(System.in);
         System.out.println("""
-                --- Dela Flight Seat Booking ---
-                1. View Available Seats
-                2. Book a seat
-                3. Exit
+                  Dela Flight Seat Booking 
+            1. View Available Seats
+            2. Book a seat
+            3. Exit
                 """);
         System.out.print("Please select a option: ");
         int option = input.nextInt();
@@ -60,7 +62,9 @@ public class Flight {
     }
 
     private static void showSeatingArea() {
-        System.out.println("View Seating Area");
+        System.out.println("*".repeat(37));
+        System.out.println("|          View Seating Area        |");
+        System.out.println("*".repeat(37));
         int rows = planeSeats.length;
         for (int row = 0; row<rows;row++){
             System.out.print("Row "+(row + 1)+":");
