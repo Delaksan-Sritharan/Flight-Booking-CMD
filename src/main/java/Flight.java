@@ -55,10 +55,24 @@ public class Flight {
             System.out.println("Row "+(row+1)+" price is "+pricePerRow[row]);
 
         }
-        System.out.print("Enter row number : ");
-        int row = input.nextInt() - 1;
+        int row = -1;
+        int seat = -1;
+        while (true) {
+            try {
+                System.out.print("Enter row number : ");
+                 row = input.nextInt() - 1;
+                if (row >= 0 && row < planeSeats.length) {
+                    break;
+                } else {
+                    System.out.println("Invalid input! Please enter a seat between 1 and " + planeSeats.length);
+                }
+        }catch (InputMismatchException e){
+            System.out.println("Invalid input! Please enter a valid number for the row.");
+            input.next();
+        }
+    }
         System.out.print("Enter the seat number : ");
-        int seat = input.nextInt() - 1;
+         seat = input.nextInt() - 1;
 
         if (planeSeats[row][seat] == 0){
             planeSeats[row][seat] = 1;
