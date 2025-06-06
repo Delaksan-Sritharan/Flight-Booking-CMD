@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Flight {
@@ -5,6 +6,7 @@ public class Flight {
     private static int[] pricePerRow = null;
 
     public static void main(String[] args) {
+        System.out.println();
         System.out.println("*".repeat(37));
         System.out.println("|  Welcome to Dela Flight Booking!  |");
         System.out.println("*".repeat(37));
@@ -28,6 +30,7 @@ public class Flight {
 
 
     public static int getMenu(){
+        int option = -1;
         Scanner input = new Scanner(System.in);
         System.out.println("""
                   Dela Flight Seat Booking 
@@ -36,7 +39,12 @@ public class Flight {
             3. Exit
                 """);
         System.out.print("Please select a option: ");
-        int option = input.nextInt();
+        try{
+            option = input.nextInt();
+        }catch (InputMismatchException e){
+            System.out.println("Invalid input! Please enter a number between 1 and 3.");
+            input.next();
+        }
         return option;
     }
 
@@ -67,7 +75,7 @@ public class Flight {
         System.out.println("*".repeat(37));
         int rows = planeSeats.length;
         for (int row = 0; row<rows;row++){
-            System.out.print("Row "+(row + 1)+":");
+            System.out.print("Row "+(row + 1)+" : ");
             int seatsPerRow = planeSeats[row].length;
             for(int seat = 0; seat< seatsPerRow;seat++){
                 if (planeSeats[row][seat] == 0){
