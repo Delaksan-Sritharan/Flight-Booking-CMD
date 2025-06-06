@@ -50,6 +50,7 @@ public class Flight {
             System.out.println("Purchase Succesful");
         }else {
             System.out.println("This seat is already taken");
+            buyTickets();
         }
     }
 
@@ -75,6 +76,7 @@ public class Flight {
             switch (option){
                 case 3:
                     decision = false;
+                    System.out.println("Thank you for choosing us!");
                     break;
                 case 2:
                     buyTickets();
