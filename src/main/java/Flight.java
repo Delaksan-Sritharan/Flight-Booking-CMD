@@ -43,7 +43,7 @@ public class Flight {
             option = input.nextInt();
         }catch (InputMismatchException e){
             System.out.println("Invalid input! Please enter a number between 1 and 3.");
-            input.next();
+            input.nextLine();
         }
         return option;
     }
@@ -53,7 +53,6 @@ public class Flight {
         System.out.println("Row price details");
         for (int row = 0; row <planeSeats.length;row++){
             System.out.println("Row "+(row+1)+" price is "+pricePerRow[row]);
-
         }
         int row = -1;
         int seat = -1;
@@ -71,17 +70,27 @@ public class Flight {
             input.next();
         }
     }
+        while (true){
+            try {
         System.out.print("Enter the seat number : ");
          seat = input.nextInt() - 1;
-
+        if (seat >= 0 && seat < planeSeats[row].length){
         if (planeSeats[row][seat] == 0){
             planeSeats[row][seat] = 1;
             System.out.println("Purchase Succesful");
+            break;
         }else {
             System.out.println("This seat is already taken");
-            buyTickets();
+        }
+        }else {
+            System.out.println("Invalid seat number! Please enter a seat between 1 and " + planeSeats[row].length);
+        }
+        }catch(InputMismatchException e){
+            System.out.println("Invalid input! Please enter a valid number for the seat.");
+            input.next();
         }
     }
+}
 
     private static void showSeatingArea() {
         System.out.println("*".repeat(37));
