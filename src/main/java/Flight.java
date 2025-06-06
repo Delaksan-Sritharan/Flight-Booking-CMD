@@ -40,6 +40,11 @@ public class Flight {
 
     public static void buyTickets(){
         Scanner input = new Scanner(System.in);
+        System.out.println("Row price details");
+        for (int row = 0; row <planeSeats.length;row++){
+            System.out.println("Row "+(row+1)+" price is "+pricePerRow[row]);
+
+        }
         System.out.print("Enter row number : ");
         int row = input.nextInt() - 1;
         System.out.print("Enter the seat number : ");
@@ -55,8 +60,10 @@ public class Flight {
     }
 
     private static void showSeatingArea() {
+        System.out.println("View Seating Area");
         int rows = planeSeats.length;
         for (int row = 0; row<rows;row++){
+            System.out.print("Row "+(row + 1)+":");
             int seatsPerRow = planeSeats[row].length;
             for(int seat = 0; seat< seatsPerRow;seat++){
                 if (planeSeats[row][seat] == 0){
