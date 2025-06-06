@@ -107,7 +107,10 @@ public class Flight {
                     System.out.print("[x]");
                 }
             }System.out.println();
-        }
+        }System.out.println("=".repeat(76));
+        System.out.println("LEGEND: [O] = Seat available, [X] = Seat not available");
+        System.out.println("=".repeat(76));
+        System.out.println();
     }
 
 
